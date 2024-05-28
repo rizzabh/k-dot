@@ -117,7 +117,7 @@ const Home = () => {
   };
 
   const handlePasswordSubmit = () => {
-    if (password === "stay") {
+    if (password === import.meta.env.VITE_PASSWORD) {
       setAllow(true);
     } else {
       toast.error("Incorrect password");
