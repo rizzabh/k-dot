@@ -28,8 +28,8 @@ const Home = () => {
   const [role, setRole] = useState("");
   const [password, setPassword] = useState("");
   const [allow, setAllow] = useState(false);
-  const knum = "919769037608";
-  const rnum = "919920215521";
+  const knum = import.meta.env.VITE_KNUM;
+  const rnum = import.meta.env.VITE_RNUM;
   const handleKat = () => {
     setKat(true);
     setRat(false);
