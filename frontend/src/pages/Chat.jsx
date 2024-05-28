@@ -6,9 +6,10 @@ import { signOut, getAuth } from "firebase/auth";
 import { RoleContext } from "../context/roleContext";
 import Sidebar from "../components/Sidebar";
 import Message from "../components/Message";
+import { ToastContainer, toast } from "react-toastify";
 const Chat = () => {
   const [chats, setChats] = useState([]);
-  const { user, setUser } = useContext(RoleContext);
+  const { user } = useContext(RoleContext);
 
   const fetchChats = async () => {
     const { data } = await axios.get("http://localhost:5000/api/chat");
@@ -16,22 +17,29 @@ const Chat = () => {
     setChats(data);
   };
 
+  if (user === "k") {
+    toast.success("Logged in as K");
+    console.log("Logged in as K");
+  } else {
+    toast.success("Logged in as R");
+    console.log("Logged in as R");
+  }
   useEffect(() => {
     fetchChats();
   }, []);
 
-  const logout = () => {
-    const auth = getAuth();
-    signOut(auth)
-      .then(() => {
-        console.log("Logged Out");
-        localStorage.removeItem("user");
-        window.location.href = "/";
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+  // const logout = () => {
+  //   const auth = getAuth();
+  //   signOut(auth)
+  //     .then(() => {
+  //       console.log("Logged Out");
+  //       localStorage.removeItem("user");
+  //       window.location.href = "/";
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
   return (
     <div>
       {/* <button
@@ -47,9 +55,10 @@ const Chat = () => {
           </div>
         );
       })} */}
-      <div className="grid grid-cols-2 max-md:grid-cols-1 lg:grid-cols-4">
-        <Sidebar className="resize-x" />
-        <Message className="col-span-3 resize-x" />
+      <ToastContainer theme="dark" />
+      <div className="grid grid-cols-2 max-md:grid-cols-1 lg:grid-cols-[1fr_3fr] gap-6 auto-rows-fr">
+        <Sidebar className="" />
+        <Message className="border" />
       </div>
     </div>
   );

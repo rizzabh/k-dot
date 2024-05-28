@@ -14,6 +14,8 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { auth } from "../../firebase.config";
 import { useNavigate } from "react-router-dom";
+import { RoleContext } from "../context/roleContext";
+import { useContext } from "react";
 
 const Home = () => {
   const [otp, setOtp] = useState("");
@@ -25,11 +27,11 @@ const Home = () => {
   const [user, setUser] = useState(false);
   const navigate = useNavigate();
   const [disabled, setDisabled] = useState(false);
-  const [role, setRole] = useState("");
   const [password, setPassword] = useState("");
   const [allow, setAllow] = useState(false);
   const knum = import.meta.env.VITE_KNUM;
   const rnum = import.meta.env.VITE_RNUM;
+  const { role, setRole } = useContext(RoleContext);
   const handleKat = () => {
     setKat(true);
     setRat(false);

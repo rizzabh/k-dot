@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useClipboard } from "use-clipboard-copy";
 import { CgSpinner } from "react-icons/cg";
 import { getAuth, signOut } from "firebase/auth";
+import { FiCopy } from "react-icons/fi";
+import { FiDownload } from "react-icons/fi";
 
 import axios from "axios";
 
@@ -69,8 +71,8 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="h-[90vh]">
-      <div className="w-full border rounded-md max-h-[140vh] md:h-[96vh] border-gray-800 p-4">
+    <div className="h-[90vh] ">
+      <div className="w-full border rounded-md max-h-[140vh] md:h-[96vh] border-gray-800 p-4  overflow-y-scroll overflow-hidden">
         <div className="flex justify-between p-2 border rounded-md border-gray-900 bg-gray-600/20">
           <h1 className="px-3 py-2 font-bold text-xl">K-chat</h1>
           <button
@@ -80,7 +82,7 @@ const Sidebar = () => {
             <FaSignOutAlt />
           </button>
         </div>
-        <div className="mt-4 p-2 border border-gray-800/70 rounded-md cursor-pointer hover:bg-gray-500/20 flex">
+        {/* <div className="mt-4 p-2 border border-gray-800/70 rounded-md cursor-pointer hover:bg-gray-500/20 flex">
           <img
             src="./rizzabh (Large).jpg"
             className="rounded-full object-cover  w-10 h-10"
@@ -92,7 +94,7 @@ const Sidebar = () => {
             <h2 className="font-semibold ml-4">Rishu</h2>
             <p className="ml-4 text-sm text-gray-500">Tap to Open Chat</p>
           </div>
-        </div>
+        </div> */}
         <div className="mt-4 p-2 border border-gray-800/70 rounded-md cursor-pointer hover:bg-gray-500/20 flex">
           <img
             src="./kathu.jpg"
@@ -106,10 +108,10 @@ const Sidebar = () => {
             <p className="ml-4 text-sm text-gray-500">Tap to Open Chat</p>
           </div>
         </div>
-        <h1 className="text-left ml-2 font-medium text-xl text-gray-300 py-4 border-t mt-6 border-gray-800">
+        <h1 className="text-left ml-2 font-medium text-sm text-gray-300 py-4 border-t mt-2 border-gray-800">
           Explore Mini Games:
         </h1>
-        <div className="grid grid-cols-2 gap-4 cursor-pointer">
+        <div className="grid grid-cols-2 gap-4 cursor-pointer auto-rows-fr">
           <div
             onClick={() => {
               setRandomCat(true);
@@ -126,7 +128,7 @@ const Sidebar = () => {
               className="object-cover rounded-md transition-transform duration-300 ease-in-out group-hover:scale-110"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black rounded-md opacity-75"></div>
-            <div className="absolute bottom-0 ml-2 flex items-center justify-center text-white text-sm">
+            <div className="absolute bottom-0 ml-2 flex items-center justify-center group-hover:ml-2 transition-transform duration-300 ease-in-out  text-white text-sm">
               Random Cat
             </div>
           </div>
@@ -144,7 +146,7 @@ const Sidebar = () => {
             <img
               src="./rizzcat.png"
               alt="cat"
-              className="object-cover scale-125 rounded-md transition-transform duration-300 ease-in-out group-hover:scale-110"
+              className="object-cover h-full rounded-md w-full transition-transform duration-300 ease-in-out group-hover:scale-110"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black rounded-md opacity-75"></div>
             <div className="absolute bottom-0 ml-2 flex items-center justify-center text-white text-sm">
@@ -171,21 +173,24 @@ const Sidebar = () => {
               />
               <button
                 onClick={downloadCatImage}
-                className="border border-gray-500 hover:bg-white hover:text-black px-4 py-2 mt-4 rounded-full opacity-50"
+                className="border flex gap-2 items-center justify-center border-gray-500 hover:bg-white hover:text-black px-4 py-2 mt-4 rounded-full opacity-50"
               >
-                Download
+                Download <FiDownload />
               </button>
             </>
           )}
           {line.length > 0 && (
-            <div className="mt-3 p-2 border border-gray-800/70 rounded-md cursor-pointer hover:bg-gray-500/20 flex">
-              <div className="text-center">
-                <h2 className="font-light italic text-md">"{line}"</h2>
+            <div className="mt-3 p-2 border border-gray-800/70 rounded-md cursor-pointer justify-center items-center hover:bg-gray-500/20 flex">
+              <div className="grid-flow-col grid-rows-2 place-items-center">
+                <h2 className="font-light italic text-2xl md:text-sm lg:text-lg">
+                  "{line}"
+                </h2>
                 <button
                   onClick={copyToClipboard}
-                  className="border border-gray-700 py-2 px-4 mx-auto text-sm mt-2 rounded-full bg-gray-600/10 hover:bg-gray-500/20 hover:text-gray-100 opacity-50"
+                  className="border flex gap-2 justify-center items-center border-gray-700 py-2 px-4 mx-auto text-sm mt-2 rounded-full bg-gray-600/10 hover:bg-gray-500/20 hover:text-gray-100 opacity-50"
                 >
-                  {clipboard.copy && copy ? "Copied!" : "Copy"}
+                  {clipboard.copy && copy ? "Copied!" : "Copy"}{" "}
+                  {clipboard.copy && copy ? "" : <FiCopy />}
                 </button>
               </div>
             </div>
