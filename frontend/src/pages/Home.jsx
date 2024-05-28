@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { IoIosArrowForward } from "react-icons/io";
 import OtpInput from "react-otp-input";
-import { CgSpinner } from "react-icons/cg";
+import { CgDarkMode, CgSpinner } from "react-icons/cg";
 import { useEffect } from "react";
 import {
   getAuth,
@@ -96,6 +96,7 @@ const Home = () => {
   const [resendTimer, setResendTimer] = useState(0);
 
   useEffect(() => {
+    console.log(rnum, knum);
     let interval;
     if (resendTimer > 0) {
       interval = setInterval(() => {
@@ -128,7 +129,7 @@ const Home = () => {
     <div>
       <div className="login"></div>
       <h1 className="text-4xl font-bold">K-chat</h1>
-      <ToastContainer />
+      <ToastContainer theme="dark" />
       <p className="text-gray-500">Visible to mau's eyes only</p>
       <div id="recaptcha-container"></div>
       {!allow && (

@@ -83,13 +83,26 @@ const Sidebar = () => {
         <div className="mt-4 p-2 border border-gray-800/70 rounded-md cursor-pointer hover:bg-gray-500/20 flex">
           <img
             src="./rizzabh (Large).jpg"
-            className="rounded-full object-cover"
+            className="rounded-full object-cover  w-10 h-10"
             height={40}
             width={40}
             alt=""
           />
           <div className="text-left">
             <h2 className="font-semibold ml-4">Rishu</h2>
+            <p className="ml-4 text-sm text-gray-500">Tap to Open Chat</p>
+          </div>
+        </div>
+        <div className="mt-4 p-2 border border-gray-800/70 rounded-md cursor-pointer hover:bg-gray-500/20 flex">
+          <img
+            src="./kathu.jpg"
+            className="rounded-full object-cover w-10 h-10"
+            height={40}
+            width={40}
+            alt=""
+          />
+          <div className="text-left">
+            <h2 className="font-semibold ml-4">Kathu</h2>
             <p className="ml-4 text-sm text-gray-500">Tap to Open Chat</p>
           </div>
         </div>
