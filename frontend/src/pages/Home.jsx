@@ -47,6 +47,7 @@ const Home = () => {
   const sendOtp = async () => {
     try {
       setDisabled(true);
+      console.log(knum, rnum);
 
       const auth = getAuth();
       window.recaptchaVerifier = new RecaptchaVerifier(
@@ -108,7 +109,7 @@ const Home = () => {
   const handleResendOtp = () => {
     if (resendTimer === 0) {
       sendOtp();
-      setResendTimer(60);
+      setResendTimer(30);
     }
   };
 
