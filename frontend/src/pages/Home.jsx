@@ -26,8 +26,8 @@ const Home = () => {
   const navigate = useNavigate();
   const [disabled, setDisabled] = useState(false);
   const [role, setRole] = useState("");
-  const knum = import.meta.env.VITE_K;
-  const rnum = import.meta.env.VITE_R;
+  const knum = "919769037608";
+  const rnum = "919920215521";
   const handleKat = () => {
     setKat(true);
     setRat(false);
