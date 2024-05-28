@@ -98,7 +98,6 @@ const Home = () => {
   const [resendTimer, setResendTimer] = useState(0);
 
   useEffect(() => {
-    console.log(rnum, knum);
     let interval;
     if (resendTimer > 0) {
       interval = setInterval(() => {
