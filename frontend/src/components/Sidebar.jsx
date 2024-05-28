@@ -70,7 +70,7 @@ const Sidebar = () => {
 
   return (
     <div className="h-[90vh]">
-      <div className="w-full border rounded-md h-full border-gray-800 p-4">
+      <div className="w-full border rounded-md h-fit border-gray-800 p-4">
         <div className="flex justify-between p-2 border rounded-md border-gray-900 bg-gray-600/20">
           <h1 className="px-3 py-2 font-bold text-xl">K-chat</h1>
           <button
