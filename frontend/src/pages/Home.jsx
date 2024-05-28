@@ -26,6 +26,8 @@ const Home = () => {
   const navigate = useNavigate();
   const [disabled, setDisabled] = useState(false);
   const [role, setRole] = useState("");
+  const [password, setPassword] = useState("");
+  const [allow, setAllow] = useState(false);
   const knum = "919769037608";
   const rnum = "919920215521";
   const handleKat = () => {
@@ -110,6 +112,18 @@ const Home = () => {
     }
   };
 
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handlePasswordSubmit = () => {
+    if (password === "stay") {
+      setAllow(true);
+    } else {
+      toast.error("Incorrect password");
+    }
+  };
+
   return (
     <div>
       <div className="login"></div>
@@ -117,7 +131,26 @@ const Home = () => {
       <ToastContainer />
       <p className="text-gray-500">Visible to mau's eyes only</p>
       <div id="recaptcha-container"></div>
-      {!kat && !rat && (
+      {!allow && (
+        <div className="mt-20">
+          <div>Type our password below</div>
+          <form action="" onSubmit={handlePasswordSubmit}>
+            <input
+              type="password"
+              value={password}
+              onChange={handlePasswordChange}
+              className="border border-gray-300 rounded-md px-3 py-2 mt-2"
+            />
+            <button
+              type="submit"
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+      )}
+      {!kat && !rat && allow && (
         <div className="border border-gray-700 p-8 rounded-md w-80 h-fit mx-auto m-10 bg-gray-600/10">
           <h1 className="text-3xl font-semibold mb-4">Login</h1>
           <div

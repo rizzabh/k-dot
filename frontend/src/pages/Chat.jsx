@@ -47,9 +47,9 @@ const Chat = () => {
           </div>
         );
       })} */}
-      <div className="grid grid-cols-2 max-md:grid-cols-1 lg:grid-cols-3">
-        <Sidebar className="" />
-        <Message className="col-span-2" />
+      <div className="grid grid-cols-2 max-md:grid-cols-1 lg:grid-cols-4">
+        <Sidebar className="resize-x" />
+        <Message className="col-span-3 resize-x" />
       </div>
     </div>
   );
